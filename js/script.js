@@ -8,10 +8,11 @@
 // BONUS: (da fare solo se funziona tutto il resto)
 
 var bombs = []
-var maxAttempts = 100 - 16;
+var maxAttempts = 5;
 var attempts = []
 var score = 0;
 
+//--------bombe--------\\
 
 while (bombs.length < 16) {
   var randomNumbers = generateRandomNumber (1, 100);
@@ -23,6 +24,31 @@ while (bombs.length < 16) {
 
 }
 console.log(bombs);
+
+//-----------fime bombe-----------\\
+
+//-----------utente-------------\\
+// for (var i = 0; i < maxAttempts; i++) {
+//
+//   var numeroUtente = parseInt(prompt("inserisci un numero"));
+//   attempts.push(numeroUtente);
+//   }
+
+  while (attempts.length < maxAttempts) {
+    var numeroUtente = parseInt(prompt("inserisci un numero"));
+    console.log(numeroUtente);
+    var check2 = alreadyExist (attempts, numeroUtente)
+    console.log(check2);
+
+    if (check2 == false) {
+      attempts.push(numeroUtente);
+
+    }
+  }
+console.log(attempts);
+
+//-----------fine utente-------------\\
+
 
 
 //----------functions------------\\
