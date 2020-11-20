@@ -7,19 +7,42 @@
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 // BONUS: (da fare solo se funziona tutto il resto)
 
-var numeriComputer = []
+var bombs = []
+var maxAttempts = 100 - 16;
+var attempts = []
+var score = 0;
 
-for (var i = 1; i < 17; i++) {
-  var bombe = Math.floor(Math.random() * 100 + 1);
-  numeriComputer.push(bombe);
+
+while (bombs.length < 16) {
+  var randomNumbers = generateRandomNumber (1, 100);
+  var check = alreadyExist (bombs, randomNumbers)
+
+  if (check == false) {
+    bombs.push(randomNumbers);
+  }
+
 }
-console.log(numeriComputer);
+console.log(bombs);
 
-if (bombe == numeriComputer) {
-  numeriComputer.splice(bombe);  
+
+//----------functions------------\\
+
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (min + max) ) + min;
 }
 
 
+function alreadyExist (array, element) {
+  var exist = false;
+
+  for (var i = 0; i < array.length; i++) {
+    if (element == array[i]) {
+      exist = true;
+      return exist;
+    }
+  }
+  return exist;
+}
 
 
 
