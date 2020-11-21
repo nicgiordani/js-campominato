@@ -11,6 +11,26 @@ var bombs = []
 var maxAttempts = 100 - 16;
 var attempts = []
 var score = 0;
+var difficult;
+var maxNumber
+
+//------------bonus----------------\\
+
+// var difficult = parseInt(prompt("inserisci una delle difficoltà tra: (normale media alta) "))
+//
+// switch (difficult) {
+//   case "normale":
+//     maxNumbers = 100;
+//     break;
+//   case "media":
+//     maxNumbers = 80;
+//     break;
+//   case "alta":
+//     maxNumbers = 50;
+//     break;
+//   default:
+//
+// }
 
 //--------bombe--------\\
 
@@ -27,12 +47,10 @@ console.log(bombs);
 
 //-----------fime bombe-----------\\
 
+
 //-----------utente-------------\\
-// for (var i = 0; i < maxAttempts; i++) {
-//
-//   var numeroUtente = parseInt(prompt("inserisci un numero"));
-//   attempts.push(numeroUtente);
-//   }
+
+
 while (attempts.length < maxAttempts) {
   var numeroUtente = parseInt(prompt("inserisci un numero"));
   var check2 = alreadyExist (attempts, numeroUtente);
