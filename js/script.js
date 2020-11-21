@@ -8,14 +8,14 @@
 // BONUS: (da fare solo se funziona tutto il resto)
 
 var bombs = []
-var maxAttempts = 5;
+var maxAttempts = 100 - 16;
 var attempts = []
 var score = 0;
 
 //--------bombe--------\\
 
 while (bombs.length < 16) {
-  var randomNumbers = generateRandomNumber (1, 100);
+  var randomNumbers = generateRandomNumber (1, 99);
   var check = alreadyExist (bombs, randomNumbers)
 
   if (check == false) {
@@ -33,19 +33,24 @@ console.log(bombs);
 //   var numeroUtente = parseInt(prompt("inserisci un numero"));
 //   attempts.push(numeroUtente);
 //   }
+while (attempts.length < maxAttempts) {
+  var numeroUtente = parseInt(prompt("inserisci un numero"));
+  var check2 = alreadyExist (attempts, numeroUtente);
+  var checkBombs = alreadyExist (bombs, numeroUtente);
 
-  while (attempts.length < maxAttempts) {
-    var numeroUtente = parseInt(prompt("inserisci un numero"));
-    console.log(numeroUtente);
-    var check2 = alreadyExist (attempts, numeroUtente)
-    console.log(check2);
-
-    if (check2 == false) {
-      attempts.push(numeroUtente);
-
-    }
+  if (check2 == false && checkBombs == false) {
+    attempts.push(numeroUtente);
+    score++;
+  } else if (check2 == true) {
+    alert("numero già inserito");
+  } else if (checkBombs == true) {
+    alert("hai perso");
+    break;
   }
+}
 console.log(attempts);
+alert("punteggio " + score);
+
 
 //-----------fine utente-------------\\
 
